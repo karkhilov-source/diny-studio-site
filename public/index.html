@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DINY Studio | Веб-кам студия в центре Краснодара</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="DINY Studio — веб-кам студия в центре Краснодара. Комфортные комнаты, обучение с нуля, поддержка 24/7. Заполни анкету и начни зарабатывать.">
+    <!-- Подключение шрифтов Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Tilt+Neon&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Твой CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- ================= НАВИГАЦИЯ ================= -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">DINY STUDIO</div>
+            <div class="nav-links">
+                <a href="#home">Главная</a>
+                <a href="#about">О студии</a>
+                <a href="#format">Формат работы</a>
+                <a href="#rooms">Комнаты</a>
+                <a href="#benefits">Преимущества</a>
+                <a href="#faq">FAQ</a>
+                <a href="#form">Анкета</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <section id="home" class="hero">
+        <div class="age-badge">18+</div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>DINY STUDIO</h1>
+            <p class="hero-subtitle">Веб-кам студия в центре Краснодара</p>
+            <p class="hero-text">
+                Комфортные комнаты, обучение с нуля, поддержка 24/7 и достойный доход
+                в безопасной и профессиональной среде.
+            </p>
+            <div class="hero-buttons">
+                <button class="cta-button"
+                    onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">
+                    Заполнить анкету
+                </button>
+                <a href="https://t.me/dinycompany" class="secondary-btn" target="_blank" rel="noopener noreferrer">
+                    Получить консультацию
+                </a>
+            </div>
+            <p class="hero-note">18+ · Конфиденциальность · Обучение с нуля</p>
+        </div>
+    </section>
+
+    <!-- ================= О СТУДИИ ================= -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2>О студии</h2>
+            <p class="section-intro">
+                DINY Studio — современная студия в центральном районе Краснодара.
+                Мы создаём безопасные и комфортные условия для работы и роста каждой модели.
+            </p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🏢 Локация</h3>
+                    <p>
+                        Мы находимся в центре Краснодара: удобный транспорт, кафе и инфраструктура
+                        рядом. Студия в отдельном помещении, без вывесок и посторонних.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>✨ Оборудование и интерьер</h3>
+                    <p>
+                        Современные камеры, свет, быстрый интернет, продуманные интерьеры комнат.
+                        Всё нацелено на качество картинки и комфорт в кадре.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>📈 Развитие и обучение</h3>
+                    <p>
+                        Обучаем с нуля: позиции, общение, психология, работа с платформами.
+                        Помогаем выстроить стиль и образ, чтобы расти в доходе.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>🤝 Поддержка 24/7</h3>
+                    <p>
+                        Администрация и техподдержка всегда на связи: поможем с площадками,
+                        статистикой, расписанием и любыми рабочими вопросами.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ФОРМАТ РАБОТЫ ================= -->
+    <section id="format" class="section format">
+        <div class="container">
+            <h2>Формат работы</h2>
+            <p class="section-intro">
+                Ты можешь работать в студии в Краснодаре или из дома — если у тебя есть оборудование
+                и подписан договор со студией.
+            </p>
+
+            <div class="format-grid">
+                <div class="format-card">
+                    <h3>Работа в студии</h3>
+                    <ul>
+                        <li>Комнаты в закрытом помещении, без посторонних</li>
+                        <li>Профессиональное оборудование и быстрый интернет</li>
+                        <li>Помощь администратора во время эфиров</li>
+                        <li>Гибкий график, смены под тебя</li>
+                    </ul>
+                </div>
+                <div class="format-card">
+                    <h3>Работа из дома</h3>
+                    <ul>
+                        <li>Доступна после собеседования и подписания договора</li>
+                        <li>Нужно своё оборудование и стабильный интернет</li>
+                        <li>Поддержка и обучение от студии остаются</li>
+                        <li>Статистика и выплаты — через студию</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= КОМНАТЫ СТУДИИ ================= -->
+    <section id="rooms" class="section rooms">
+        <div class="container">
+            <h2>Комнаты студии</h2>
+            <p class="section-intro">
+                В студии несколько оформленных комнат с разным настроением: от нежных
+                розовых до более атмосферных и тёмных. Ты можешь работать в той, где
+                чувствуешь себя комфортно.
+            </p>
+
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <img src="images/room1.png" alt="Комната 1">
+                    <div class="room-info">
+                        <h3>Нежная студия</h3>
+                        <p>Светлый интерьер, мягкий неон, уютная атмосфера и комфортная мебель.</p>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <img src="images/room2.png" alt="Комната 2">
+                    <div class="room-info">
+                        <h3>Неоновая студия</h3>
+                        <p>Контрастный свет, неоновые акценты и выразительный фон для ярких эфиров.</p>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <img src="images/room3.png" alt="Комната 3">
+                    <div class="room-info">
+                        <h3>Атмосферная студия</h3>
+                        <p>Более тёмный интерьер, акцентное освещение и камерная атмосфера.</p>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <img src="images/room4.png" alt="Комната 4">
+                    <div class="room-info">
+                        <h3>Просторная студия</h3>
+                        <p>Просторное помещение, дополнительное оборудование и премиальный интерьер.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ПРЕИМУЩЕСТВА ================= -->
+    <section id="benefits" class="section benefits">
+        <div class="container">
+            <h2>
+                <span class="benefits-line">Почему девушки выбирают</span><br>
+                DINY Studio
+            </h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>💰Достойный доход</h3>
+                    <p>
+                        Прозрачная система расчётов, регулярные выплаты и возможность выйти
+                        на стабильный высокий доход при грамотной работе.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>🔐Конфиденциальность</h3>
+                    <p>
+                        Безопасность и приватность: серьёзное отношение к защите данных и
+                        анонимности моделей.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>🎓Обучение с нуля</h3>
+                    <p>
+                        Не нужен опыт. Мы обучаем форматам общения, работе с площадками,
+                        помогаем чувствовать себя уверенно в кадре.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>🧠Поддержка психологически</h3>
+                    <p>
+                        Помогаем адаптироваться, убрать тревоги и выстроить здоровое
+                        отношение к работе и границам.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section id="faq" class="section faq">
+        <div class="container">
+            <h2>Частые вопросы</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Нужен ли опыт?</h3>
+                    <p>
+                        Нет. Мы работаем как с новичками, так и с опытными моделями. Обучение
+                        и поддержка — на нашей стороне.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Мне есть 18, но нет опыта. Это нормально?</h3>
+                    <p>
+                        Да. Главное — желание работать, учиться и развиваться. Остальному
+                        научим на месте.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Это не эскорт?</h3>
+                    <p>
+                        Нет. Работа только на онлайн-платформах. Никаких встреч, перевозок и т.д.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Когда и как выплачиваются деньги?</h3>
+                    <p>
+                        Выплаты происходят регулярно, по согласованному графику. Все условия
+                        обсуждаются на собеседовании.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Могу ли я работать из другой страны/города?</h3>
+                    <p>
+                        Да, при условии, что у тебя есть оборудование, стабильный интернет
+                        и заключён договор со студией.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Как попасть к вам?</h3>
+                    <p>
+                        Заполни анкету ниже, прикрепи фото — администратор свяжется с тобой
+                        и расскажет детали.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= АНКЕТА (ФОРМА С ФОТО) ================= -->
+    <section id="form" class="section form-section">
+        <div class="container">
+            <h2>Анкета модели</h2>
+            <p class="form-subtitle">
+                Оставь свои данные, прикрепи фото — и администратор DINY Studio свяжется
+                с тобой для консультации.
+            </p>
+
+            <form class="registration-form" action="/apply" method="POST" enctype="multipart/form-data">
+                <!-- Имя -->
+                <div class="form-group">
+                    <label for="name">Имя *</label>
+                    <input type="text" id="name" name="name" required placeholder="Твоё имя">
+                </div>
+
+                <!-- Возраст -->
+                <div class="form-group">
+                    <label for="age">Возраст *</label>
+                    <input type="number" id="age" name="age" min="18" required placeholder="От 18 лет">
+                </div>
+
+                <!-- Город -->
+                <div class="form-group">
+                    <label for="city">Город *</label>
+                    <input type="text" id="city" name="city" required placeholder="Например, Краснодар">
+                </div>
+
+                <!-- Телефон -->
+                <div class="form-group">
+                    <label for="phone">Телефон (для консультации) *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+7 900 123-45-67">
+                </div>
+
+                <!-- Telegram -->
+                <div class="form-group">
+                    <label for="telegram">Telegram @username *</label>
+                    <input type="text" id="telegram" name="telegram" required placeholder="@твой_ник">
+                </div>
+
+                <!-- Формат работы -->
+                <div class="form-group">
+                    <label for="format">Формат работы *</label>
+                    <select id="format" name="format" required>
+                        <option value="">Выбери вариант</option>
+                        <option value="studio">В студии (Краснодар, центр)</option>
+                        <option value="remote">Из дома (после контракта, при наличии оборудования)</option>
+                    </select>
+                </div>
+
+                <!-- Оборудование -->
+                <div class="form-group">
+                    <label for="equipment">Есть ли у тебя оборудование?</label>
+                    <select id="equipment" name="equipment">
+                        <option value="">Выбери вариант</option>
+                        <option value="yes">Да, всё есть</option>
+                        <option value="partial">Частично (камера/свет/микрофон)</option>
+                        <option value="no">Нет, нужно оборудование студии</option>
+                    </select>
+                </div>
+
+                <!-- Опыт -->
+                <div class="form-group">
+                    <label for="experience">Опыт работы *</label>
+                    <select id="experience" name="experience" required>
+                        <option value="">Выбери вариант</option>
+                        <option value="none">Нет опыта</option>
+                        <option value="lt1">Меньше 1 года</option>
+                        <option value="1-3">1–3 года</option>
+                        <option value="3+">Более 3 лет</option>
+                    </select>
+                </div>
+
+                <!-- О себе -->
+                <div class="form-group">
+                    <label for="about">Немного о себе</label>
+                    <textarea id="about" name="about" rows="4"
+                        placeholder="Расскажи о себе, ожиданиях и вопросах"></textarea>
+                </div>
+
+                <!-- Фото -->
+                <div class="form-group">
+                    <label for="photo">Фото (лицо, без масок) *</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" required>
+                    <p class="form-note">
+                        Фото нужно только для первичного знакомства. Мы используем его
+                        строго в рамках собеседования и не передаём третьим лицам.
+                    </p>
+                </div>
+
+                <!-- Согласие -->
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <label for="agree">
+                        Мне уже есть 18 лет, я подтверждаю согласие на обработку персональных данных.
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn">Отправить анкету</button>
+                <p class="form-note">* Обязательные поля</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DINY STUDIO</h3>
+                    <p>Веб-кам студия в центральном районе Краснодара.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>📍 Краснодар, центральный район</p>
+                    <p>💬 Telegram: <a href="https://t.me/dinycompany" target="_blank"
+                            rel="noopener noreferrer">@dinycompany</a></p>
+                    <p>📧 Email: <a href="mailto:Dinycompany@yahoo.com">Dinycompany@yahoo.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Навигация</h3>
+                    <a href="#home">Главная</a>
+                    <a href="#about">О студии</a>
+                    <a href="#format">Формат работы</a>
+                    <a href="#rooms">Комнаты</a>
+                    <a href="#benefits">Преимущества</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#form">Анкета</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 DINY STUDIO. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
