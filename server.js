@@ -1,4 +1,4 @@
-// server.js
+// server.js - ГОТОВЫЙ для копирования (фикс Telegram + логи)
 require('dotenv').config();
 const path = require('path');
 const express = require('express');
@@ -10,6 +10,8 @@ const FormData = require('form-data');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+//app.use(helmet());  // раскомментируй после npm i helmet
+
 // --- 1. Настройка статики (frontend) ---
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -17,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const upload = multer({
   dest: path.join(__dirname, 'uploads/'),
   limits: {
-    fileSize: 4 * 1024 * 1024 // максимум 8 MB на фото
+    fileSize: 8 * 1024 * 1024 // 8 MB
   }
 });
 
@@ -27,168 +29,117 @@ app.post(
   (req, res, next) => {
     upload.single('photo')(req, res, function (err) {
       if (err instanceof multer.MulterError && err.code === 'LIMIT_FILE_SIZE') {
-        // Фото > 4 МБ — показываем понятную страницу и НЕ отправляем в Telegram
         return res.status(400).send(`
           <html>
-            <head>
-              <meta charset="utf-8">
-              <title>Ошибка загрузки</title>
-              <style>
-                body {
-                  background: #050308;
-                  color: #FCCCDC;
-                  font-family: Arial, sans-serif;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  height: 100vh;
-                  text-align: center;
-                }
-                .btn {
-                  margin-top: 20px;
-                  padding: 12px 24px;
-                  background: #F535AA;
-                  color: #fff;
-                  text-decoration: none;
-                  border-radius: 8px;
-                  font-weight: bold;
-                }
-              </style>
+            <head><meta charset="utf-8"><title>Ошибка загрузки</title>
+            <style>body{background:#050308;color:#FCCCDC;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;}.btn{margin-top:20px;padding:12px 24px;background:#F535AA;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;}</style>
             </head>
             <body>
               <div>
                 <h1>Фото слишком большое</h1>
-                <p>Максимальный размер файла — 4 МБ. Пожалуйста, выбери фото меньшего размера и попробуй снова.</p>
-                <a href="/" class="btn">Вернуться к анкете</a>
+                <p>Максимум 8 МБ. Попробуй фото поменьше.</p>
+                <a href="/" class="btn">← Вернуться</a>
               </div>
             </body>
           </html>
         `);
       }
-
       if (err) {
-        console.error('Ошибка загрузки файла:', err);
-        return res.status(500).send('Ошибка загрузки файла. Попробуй ещё раз.');
+        console.error('Multer error:', err);
+        return res.status(500).send('Ошибка загрузки. Попробуй снова.');
       }
-
-      next(); // идём в основной обработчик, если всё ок
+      next();
     });
   },
   async (req, res) => {
     try {
-      console.log('--- Новая анкета ---');
+      console.log('--- НОВАЯ АНКЕТА ---');
       console.log('BODY:', req.body);
       console.log('FILE:', req.file);
 
-      // Текстовые поля из формы
-      const {
-        name,
-        age,
-        city,
-        phone,
-        telegram,
-        format,
-        equipment,
-        experience,
-        about
-      } = req.body;
-
-      // Файл (фото)
-      const file = req.file; // если нет файла — будет undefined
+      const { name, age, city, phone, telegram, format, equipment, experience, about } = req.body;
+      const file = req.file;
 
       if (!file) {
-        return res.status(400).send('Фото обязательно для отправки');
+        return res.status(400).send('Фото обязательно!');
       }
 
-
-      // Собираем текст заявки
-      const caption = `
-📋 НОВАЯ АНКЕТА МОДЕЛИ — DINY STUDIO
+      const caption = `📋 НОВАЯ АНКЕТА — DINY STUDIO
 
 👤 Имя: ${name || '-'}
 🎂 Возраст: ${age || '-'}
 📍 Город: ${city || '-'}
 📱 Телефон: ${phone || '-'}
 💬 Telegram: ${telegram || '-'}
-🧭 Формат работы: ${format || '-'}
+🧭 Формат: ${format || '-'}
 🎛 Оборудование: ${equipment || '-'}
 ⭐ Опыт: ${experience || '-'}
 💭 О себе: ${about || '-'}
-🕐 Время: ${new Date().toLocaleString('ru-RU')}
-    `;
+🕐 ${new Date().toLocaleString('ru-RU')}`;
 
-      // Отправка фото в Telegram
       const telegramUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendPhoto`;
 
-      // Создаём form-data для Telegram
+      console.log('🔄 Отправляем в TG...');
+
       const formData = new FormData();
       formData.append('chat_id', process.env.TELEGRAM_CHAT_ID);
       formData.append('caption', caption);
-
-      // Читаем файл как поток
       const fileStream = fs.createReadStream(file.path);
-      formData.append('photo', fileStream, file.originalname);
+      formData.append('photo', fileStream, {
+        filename: file.originalname,
+        contentType: file.mimetype,
+        knownLength: file.size
+      });
 
-      // Отправляем запрос
       const response = await axios.post(telegramUrl, formData, {
-        headers: formData.getHeaders()
+        headers: {
+          ...formData.getHeaders(),
+          'Content-Length': formData.getLengthSync?.() || undefined
+        },
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        timeout: 30000  // 30 сек
       });
 
-      // Удаляем временный файл после отправки
+      console.log('✅ TG ответ:', response.data);
+
+      // Удаляем файл
       fs.unlink(file.path, (err) => {
-        if (err) console.error('Ошибка удаления файла:', err);
+        if (err) console.error('Файл не удалён:', err);
       });
 
-      // Если всё ок — отправляем ответ пользователю
-      if (response.data && response.data.ok) {
-        // Для пользователя можно отдать HTML-страницу с сообщением
+      if (response.data.ok) {
         res.send(`
-        <html>
-          <head>
-            <meta charset="utf-8">
-            <title>Спасибо за заявку</title>
-            <style>
-              body {
-                background: #050308;
-                color: #FCCCDC;
-                font-family: Arial, sans-serif;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-                text-align: center;
-              }
-              .btn {
-                margin-top: 20px;
-                padding: 12px 24px;
-                background: #F535AA;
-                color: #fff;
-                text-decoration: none;
-                border-radius: 8px;
-                font-weight: bold;
-              }
-            </style>
-          </head>
-          <body>
-            <div>
-              <h1>Спасибо! Твоя анкета отправлена 💖</h1>
-              <p>Администратор студии свяжется с тобой в ближайшее время.</p>
-              <a href="/" class="btn">Вернуться на главную</a>
-            </div>
-          </body>
-        </html>
-      `);
+          <html>
+            <head><meta charset="utf-8"><title>Готово!</title>
+            <style>body{background:#050308;color:#FCCCDC;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;}.btn{margin-top:20px;padding:12px 24px;background:#F535AA;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;}</style>
+            </head>
+            <body>
+              <div>
+                <h1>✅ Спасибо! Анкета отправлена 💖</h1>
+                <p>Свяжемся скоро по Telegram.</p>
+                <a href="/" class="btn">← На главную</a>
+              </div>
+            </body>
+          </html>
+        `);
       } else {
-        console.error('Ошибка Telegram:', response.data);
-        res.status(500).send('Ошибка при отправке заявки. Попробуй позже.');
+        console.error('❌ TG failed:', response.data);
+        res.status(500).send('Ошибка TG. Попробуй позже.');
       }
     } catch (error) {
-      console.error('Ошибка в /apply:', error);
-      res.status(500).send('Внутренняя ошибка сервера');
+      console.error('💥 FULL ERROR:', {
+        message: error.message,
+        status: error.response?.status,
+        data: error.response?.data,
+        code: error.code
+      });
+      res.status(500).send('Серверная ошибка. Проверь консоль.');
     }
-  });
+  }
+);
 
-// --- 4. Запуск сервера ---
+// --- 4. Запуск ---
 app.listen(PORT, () => {
-  console.log(`DINY Studio server запущен: http://localhost:${PORT}`);
+  console.log(`🚀 DINY Studio: http://localhost:${PORT}`);
 });
