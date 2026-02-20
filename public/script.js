@@ -1,11 +1,28 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('.registration-form');
   const ageInput = document.getElementById('age');
   const photoInput = document.getElementById('photo');
   const agreeCheckbox = document.getElementById('agree');
 
-  form.addEventListener('submit', function(e) {
-    // Валидация возраста
+  const MAX_SIZE_MB = 1;
+  const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
+
+  // Проверка размера при выборе файла
+  photoInput.addEventListener('change', function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    if (file.size > MAX_SIZE_BYTES) {
+      alert(`Размер фото не должен превышать ${MAX_SIZE_MB} МБ. Пожалуйста, выбери файл поменьше.`);
+      this.value = '';
+    }
+  });
+
+  // Общая валидация при отправке формы
+  form.addEventListener('submit', function (e) {
+    const file = photoInput.files[0];
+
+    // Возраст
     if (ageInput.value < 18) {
       e.preventDefault();
       alert('Возраст должен быть 18+');
@@ -14,22 +31,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Фото обязательно
-    if (!photoInput.files[0]) {
+    if (!file) {
       e.preventDefault();
-      alert('Прикрепи фото');
+      alert('Пожалуйста, прикрепи фото (до 1 МБ).');
       photoInput.focus();
+      return;
+    }
+
+    // Размер фото
+    if (file.size > MAX_SIZE_BYTES) {
+      e.preventDefault();
+      alert(`Размер фото не должен превышать ${MAX_SIZE_MB} МБ. Пожалуйста, выбери файл поменьше.`);
       return;
     }
 
     // Согласие
     if (!agreeCheckbox.checked) {
       e.preventDefault();
-      alert('Подтверди согласие (18+)');
+      alert('Подтверди согласие (18+ и обработка данных).');
       agreeCheckbox.focus();
       return;
     }
 
-    // Всё ок – показываем "отправляем..."
+    // Всё ок – блокируем кнопку
     const btn = form.querySelector('button[type="submit"]');
     btn.textContent = 'Отправляем...';
     btn.disabled = true;
