@@ -5,8 +5,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const agreeCheckbox = document.getElementById('agree');
   const hero = document.querySelector('.hero');
   const bg = document.querySelector('.hero-bg');
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav-links');
+  
   const MAX_SIZE_MB = 1;
   const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
+
+  burger.addEventListener('click', () => {
+   nav.classList.toggle('active');
+  });
 
   // Проверка размера при выборе файла
   photoInput.addEventListener('change', function () {
