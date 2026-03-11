@@ -178,12 +178,6 @@ body {
 }
 
 /* =============== HERO =============== */
-@media (max-width: 768px) {
-  .hero {
-    background-position: right center; /* сдвигаем фокус к правому краю */
-  }
-}
-
 .hero {
   margin-top: 64px;
   min-height: calc(100vh - 64px);
@@ -777,4 +771,12 @@ body {
   .rooms-grid {
     gap: 18px;
   }
+
+@media (max-width: 640px) {
+  .hero {
+    background:
+      url('images/78576.jpg') 75% center / cover no-repeat;
+  }
+}
+
 }
