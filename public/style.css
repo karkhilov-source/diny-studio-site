@@ -187,13 +187,13 @@ body {
   align-items: center;
   justify-content: center;
   padding: 80px 20px 60px;
+  background-position: right center; /* сдвигаем фокус к правому краю */
   background:
-    linear-gradient(135deg,
+/*    linear-gradient(135deg,
       rgba(5, 3, 8, 0.15),
       /* было 0.9, делаем прозрачнее */
       rgba(50, 9, 56, 0.15)
-      /* было 0.7 */
-    ),
+      /* было 0.7  ),*/
     url('images/78576.jpg') center/cover no-repeat;
   overflow: hidden;
 }
