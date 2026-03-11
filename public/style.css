@@ -28,17 +28,11 @@ scroll-behavior:smooth;
 }
 
 body{
-
 font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-
 background:radial-gradient(circle at top,#130722 0,var(--bg-dark) 45%,#000000 100%);
-
 color:var(--text-main);
-
 line-height:1.6;
-
 overflow-x:hidden;
-
 }
 
 /* ================= CONTAINER ================= */
@@ -54,651 +48,669 @@ padding:0 20px;
 /* ================= SECTIONS ================= */
 
 .section{
-
 padding:80px 0;
-
 }
 
 .section h2{
-
 font-family:'Inter',system-ui,sans-serif;
-
 text-align:center;
-
 font-size:2.2rem;
-
 text-transform:uppercase;
-
 letter-spacing:.14em;
-
 margin-bottom:24px;
-
 color:var(--text-main);
-
 text-shadow:0 0 18px rgba(245,53,170,.9);
+}
 
+.benefits-line { 
+  display: inline-block; 
+  transform: translateX(0.7em); /* подбираешь: 0.2–0.6em по вкусу */ 
 }
 
 .section-intro{
-
 text-align:center;
-
 max-width:780px;
-
 margin:0 auto 40px;
-
 color:var(--soft-pink);
-
 font-size:.98rem;
-
 }
 
 /* ================= NAVBAR ================= */
 
 .navbar{
-
 position:fixed;
 top:0;
-
 width:100%;
 height:var(--navbar-height);
-
 z-index:50;
-
 background:rgba(5,3,8,.97);
-
 backdrop-filter:blur(18px);
-
 border-bottom:1px solid rgba(245,53,170,.6);
-
 }
 
 .navbar-container{
-
 max-width:1200px;
 height:100%;
-
 margin:0 auto;
-
 padding:0 20px;
-
 display:flex;
-
 align-items:center;
-
 justify-content:space-between;
-
 }
 
 /* logo */
 
 .logo{
-
 font-family:'Tilt Neon',system-ui,sans-serif;
-
 font-size:1.2rem;
-
 letter-spacing:.32em;
-
 text-transform:uppercase;
-
 color:var(--neon-pink);
-
 text-shadow:
-
 0 0 14px rgba(245,53,170,1),
 0 0 26px rgba(245,53,170,.9);
-
+white-space: nowrap;
 }
 
 /* menu */
 
 .nav-links{
-
 display:flex;
 gap:18px;
-
 }
 
 .nav-links a{
-
 font-family:'Bebas Neue',system-ui,sans-serif;
-
 text-decoration:none;
-
 font-size:.75rem;
-
 text-transform:uppercase;
-
 letter-spacing:.1em;
-
 color:var(--soft-pink);
-
 border-bottom:1px solid transparent;
-
 }
 
 .nav-links a:hover{
-
 color:var(--neon-pink);
-
 border-color:rgba(245,53,170,.7);
-
 }
 
 /* ================= BURGER ================= */
 
 .burger{
-
 display:none;
-
 flex-direction:column;
-
 gap:5px;
-
 width:30px;
-
 cursor:pointer;
-
 background:none;
 border:none;
-
 }
 
 .burger span{
-
 height:3px;
 width:100%;
-
 background:var(--neon-pink);
-
 border-radius:2px;
-
 transition:.3s;
-
 }
 
 /* ================= HERO ================= */
 
 .hero{
-
 margin-top:var(--navbar-height);
-
 min-height:calc(100vh - var(--navbar-height));
-
 position:relative;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 padding:80px 20px 60px;
-
 overflow:hidden;
-
 }
 
 /* hero image */
 
 .hero-bg{
-
 position:absolute;
-
 inset:0;
-
 width:100%;
 height:100%;
-
 object-fit:cover;
-
 object-position:clamp(60%,72%,80%) center;
-
 z-index:0;
-
 transform:scale(1.06);
-
 will-change:transform;
-
 }
 
 /* overlay */
 
 .hero-overlay{
-
 position:absolute;
-
 inset:0;
-
 background:
-
 radial-gradient(circle at top left,rgba(245,53,170,.35),transparent 60%),
 radial-gradient(circle at bottom right,rgba(245,53,170,.35),transparent 65%);
-
 mix-blend-mode:screen;
-
 z-index:1;
-
 }
 
 /* hero content */
 
 .hero-content{
-
 position:relative;
-
 max-width:700px;
-
 text-align:center;
-
 z-index:2;
-
 }
 
 .hero h1{
-
 font-family:'Tilt Neon',system-ui,sans-serif;
-
 font-size:clamp(2.6rem,5vw,3.8rem);
-
 letter-spacing:.4em;
-
 text-transform:uppercase;
-
 text-shadow:
-
 0 0 22px rgba(245,53,170,1),
 0 0 40px rgba(245,53,170,.9);
-
 }
 
 .hero-subtitle{
-
+font-family: 'Inter', system-ui, sans-serif;
 font-size:1.1rem;
 margin-bottom:12px;
-
 color:var(--soft-pink);
-
 }
 
 .hero-text{
-
+font-family: 'Inter', system-ui, sans-serif;
 font-size:.98rem;
-
 max-width:560px;
-
 margin:0 auto 26px;
-
+color: var(--text-main);
 }
 
 /* ================= HERO BUTTONS ================= */
 
 .hero-buttons{
-
 display:inline-flex;
-
 flex-wrap:wrap;
-
 gap:14px;
-
 justify-content:center;
-
 margin-bottom:14px;
-
 }
 
 .cta-button,
 .secondary-btn{
-
+font-family: 'Inter', system-ui, sans-serif;
 display:inline-flex;
-
 align-items:center;
-
 justify-content:center;
-
 border-radius:999px;
-
 padding:13px 26px;
-
 font-size:.82rem;
-
 text-transform:uppercase;
-
 letter-spacing:.18em;
-
 border:1px solid transparent;
-
 cursor:pointer;
-
 transition:.2s;
-
+background: 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .cta-button{
-
 background:#F535AA;
-
 border-color:rgba(245,53,170,.9);
-
 color:white;
-
 box-shadow:
-
 0 0 14px rgba(245,53,170,.7),
 0 0 26px rgba(245,53,170,.8);
-
 }
 
 .cta-button:hover{
-
 transform:translateY(-2px);
-
 box-shadow:
-
 0 0 24px rgba(245,53,170,1),
 0 0 36px rgba(245,53,170,.9);
-
 }
 
 .secondary-btn{
-
 background:transparent;
-
 border-color:rgba(252,204,220,.9);
-
 color:var(--soft-pink);
-
+text-decoration: none;
 }
 
 .secondary-btn:hover{
-
+color: #111;
 background:rgba(252,204,220,1);
-
 color:#111;
-
 }
 
 /* ================= AGE BADGE ================= */
 
 .age-badge{
-
 position:absolute;
-
 top:calc(var(--navbar-height) + 20px);
-
 left:55px;
-
 z-index:3;
-
 font-family:'Tilt Neon';
-
 font-size:5rem;
-
 letter-spacing:.25em;
-
 text-shadow:
-
 0 0 6px rgba(245,53,170,.9),
 0 0 14px rgba(245,53,170,.8),
 0 0 24px rgba(245,53,170,.8);
-
 }
 
 /* ================= CARDS ================= */
 
 .cards-grid{
-
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
 gap:24px;
-
 }
 
 .card{
-
 background:
-
 radial-gradient(circle at top left,
-
 rgba(245,53,170,.18),
-
 rgba(5,3,8,.95));
-
 border-radius:18px;
-
 border:1px solid rgba(245,53,170,.7);
-
 padding:26px;
-
 box-shadow:
-
 0 0 24px rgba(245,53,170,.25),
-
 0 20px 45px rgba(0,0,0,.7);
-
 transition:.25s;
-
 }
 
 .card:hover{
-
 transform:translateY(-6px);
-
 box-shadow:
-
 0 0 34px rgba(245,53,170,.6),
-
 0 24px 60px rgba(0,0,0,.9);
+}
 
+/* Заголовки карточек — Bebas Neue, текст — Inter */ 
+.card h3 { 
+  font-family: 'Bebas Neue', system-ui, sans-serif; 
+  font-size: 1.1rem; 
+  margin-bottom: 10px; 
+  color: var(--soft-pink); 
+}
+
+.card p { 
+  font-family: 'Inter', system-ui, sans-serif; 
+  font-size: 0.95rem; 
+  color: var(--text-muted); 
 }
 
 /* ================= ROOMS ================= */
+.about { 
+  background: radial-gradient(circle at top, #140720 0, #050308 55%, #020005 100%); 
+}
+
+.format { 
+  background: #050308; 
+}
+
+.format-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+  gap: 26px; 
+}
+
+.format-card { 
+  background: radial-gradient(circle at top left, 
+    rgba(245, 53, 170, 0.18), 
+    rgba(5, 3, 8, 0.96)); 
+    border-radius: 18px; 
+    border: 1px solid rgba(245, 53, 170, 0.7); 
+    padding: 24px 24px 22px; 
+    box-shadow: 0 0 20px rgba(245, 53, 170, 0.25), 0 18px 40px rgba(0, 0, 0, 0.8); 
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; 
+}
+
+.format-card h3 { 
+  font-family: 'Bebas Neue', system-ui, sans-serif; 
+  margin-bottom: 10px; 
+  color: var(--soft-pink); 
+}
+
+.format-card ul { 
+  list-style: none; 
+}
+
+.format-card li { 
+  font-family: 'Inter', system-ui, sans-serif; 
+  font-size: 0.94rem; 
+  color: var(--text-muted); 
+  margin-bottom: 6px; 
+  position: relative; 
+  padding-left: 16px; 
+}
+
+.format-card li::before { 
+  content: "•"; 
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  color: var(--neon-pink); 
+}
+
+.benefits { 
+  background: radial-gradient(circle at top, #1a0a30 0, #040208 55%, #000000 100%); 
+}
+/* FAQ */
+ .faq { 
+  background: #050308; 
+} 
+
+.faq-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+  gap: 22px; 
+} 
+
+.faq-item { 
+  background: radial-gradient(circle at top left, 
+  rgba(245, 53, 170, 0.13), 
+  rgba(5, 3, 8, 0.96)); 
+  border-radius: 16px; 
+  padding: 18px 18px 16px; 
+  border: 1px solid rgba(245, 53, 170, 0.5); 
+} 
+
+.faq-item h3 { 
+  font-family: 'Bebas Neue', system-ui, sans-serif; 
+  font-size: 1rem; 
+  margin-bottom: 8px; 
+  color: var(--soft-pink); 
+} 
+
+.faq-item p { 
+  font-family: 'Inter', system-ui, sans-serif; 
+  font-size: 0.9rem; 
+  color: var(--text-muted); 
+}
+
+/* =============== КОМНАТЫ =============== */
+.rooms { 
+  background: #050308; 
+}
 
 .rooms-grid{
-
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
 gap:24px;
-
 }
 
 .room-card{
-
+background: #050308;
 border-radius:18px;
-
 overflow:hidden;
-
 border:1px solid rgba(245,53,170,.6);
-
 box-shadow:
+  0 0 20px rgba(245,53,170,.25),
+  0 20px 40px rgba(0,0,0,.85);
+transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
 
-0 0 20px rgba(245,53,170,.25),
-
-0 20px 40px rgba(0,0,0,.85);
-
+.room-card:hover { 
+  transform: translateY(-6px); 
+  box-shadow: 0 0 30px rgba(245, 53, 170, 0.6), 
+    0 24px 60px rgba(0, 0, 0, 0.95); 
+    border-color: var(--neon-pink); 
 }
 
 .room-card img{
-
 width:100%;
-
 height:260px;
-
 object-fit:cover;
+}
 
+.room-info { 
+  padding: 16px 16px 18px; 
+}
+
+.room-info h3 { 
+  font-family: 'Bebas Neue', system-ui, sans-serif; 
+  font-size: 1rem; 
+  margin-bottom: 6px; 
+  color: var(--soft-pink); 
+}
+
+.room-info p { 
+  font-family: 'Inter', system-ui, sans-serif; 
+  font-size: 0.9rem; 
+  color: var(--text-muted); 
 }
 
 /* ================= FORM ================= */
 
+.form-section { 
+  background: radial-gradient(circle at top, #1a082a 0, #050308 55%, #000000 100%); 
+}
+
+.form-subtitle { 
+  font-family: 'Inter', system-ui, sans-serif; 
+  text-align: center; 
+  max-width: 680px; 
+  margin: 0 auto 34px; 
+  color: var(--soft-pink); 
+  font-size: 0.95rem; 
+}
+
 .registration-form{
-
 max-width:640px;
-
 margin:0 auto;
-
 background:
-
 radial-gradient(circle at top left,
-
 rgba(245,53,170,.2),
-
 rgba(5,3,8,.98));
-
 border-radius:20px;
-
 border:1px solid rgba(245,53,170,.8);
-
 padding:28px 26px 24px;
-
 box-shadow:
-
 0 0 24px rgba(245,53,170,.4),
-
 0 22px 50px rgba(0,0,0,.95);
-
 }
 
 .form-group{
-
 margin-bottom:18px;
-
 }
 
 .form-group label{
-
+font-family: 'Inter', system-ui, sans-serif;
 display:block;
-
 font-size:.78rem;
-
 letter-spacing:.12em;
-
 text-transform:uppercase;
-
 color:var(--soft-pink);
-
 margin-bottom:6px;
-
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
-
+font-family: 'Inter', system-ui, sans-serif;
 width:100%;
-
 border-radius:10px;
-
 border:1px solid rgba(245,53,170,.7);
-
 background:rgba(5,3,8,.95);
-
 padding:11px 12px;
-
 color:white;
-
 font-size:.92rem;
-
+outline: none; 
 }
 
-/* ================= FOOTER ================= */
+.form-group textarea { 
+  resize: vertical; 
+  min-height: 80px; 
+} 
 
-.footer{
+.form-group input::placeholder, 
 
-background:#050308;
+.form-group textarea::placeholder { 
+  color: rgba(252, 204, 220, 0.6); 
+} 
 
-border-top:1px solid rgba(245,53,170,.5);
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus { 
+  border-color: var(--neon-pink); 
+  box-shadow: 0 0 16px rgba(245, 53, 170, 0.9); 
+  background: #050308; 
+} 
 
-padding:32px 0 18px;
+.form-group select { 
+  cursor: pointer; 
+} 
 
+.form-group select option { 
+  background: #050308; 
+  color: var(--text-main); 
+} 
+
+.form-group.checkbox { 
+  display: flex; 
+  align-items: flex-start; 
+  gap: 10px; 
+} 
+
+.form-group.checkbox input[type="checkbox"] { 
+  width: auto; 
+  margin-top: 3px; 
+} 
+
+.form-group.checkbox label { 
+  margin: 0; 
+  text-transform: none; 
+  letter-spacing: normal; 
+  font-size: 0.88rem; 
+  color: var(--text-muted); 
+} 
+
+.form-note { 
+  font-family: 'Inter', system-ui, sans-serif; 
+  margin-top: 5px; 
+  font-size: 0.75rem; 
+  color: var(--soft-pink); 
+} 
+
+/* Кнопка отправки */ 
+.submit-btn { 
+  width: 100%; 
+  margin-top: 6px; 
+}
+
+/* =============== FOOTER =============== */ 
+.footer { 
+  background: #050308; 
+  border-top: 1px solid rgba(245, 53, 170, 0.5); 
+  padding: 32px 0 18px; } 
+  
+  .footer-content { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
+    gap: 24px; 
+    margin-bottom: 18px; 
+  } 
+  
+  .footer-section h3 { 
+    font-family: 'Bebas Neue', system-ui, sans-serif; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.16em; 
+    color: var(--soft-pink); 
+    margin-bottom: 8px; 
+  } 
+  
+  .footer-section p { 
+    font-family: 'Inter', system-ui, sans-serif; 
+    font-size: 0.86rem; 
+    color: var(--text-muted); 
+    margin-bottom: 4px; 
+  } 
+  
+  .footer-section a { 
+    font-family: 'Inter', system-ui, sans-serif; 
+    display: block; 
+    font-size: 0.84rem; 
+    color: var(--text-muted); 
+    text-decoration: none; 
+    margin-bottom: 3px; 
+    transition: color 0.2s ease; 
+    text-shadow: 0.2s ease; 
+  } 
+  
+  .footer-section a:hover { 
+    color: var(--neon-pink); 
+    text-shadow: 0 0 8px rgba(245, 53, 170, 0.9); 
+  } 
+  
+  .footer-bottom { 
+    border-top: 1px solid rgba(245, 53, 170, 0.4); 
+    padding-top: 10px; 
+    text-align: center; 
+  } 
+  
+  .footer-bottom p { 
+  font-family: 'Inter', system-ui, sans-serif; 
+  font-size: 0.78rem; 
+  color: var(--text-muted); 
 }
 
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
-
 .burger{
 display:flex;
 }
 
 .nav-links{
-
 position:absolute;
-
 top:var(--navbar-height);
-
 left:0;
-
 width:100%;
-
 background:#050308;
-
 flex-direction:column;
-
 align-items:center;
-
 gap:18px;
-
 padding:24px 0;
-
 border-bottom:1px solid rgba(245,53,170,.6);
-
 transform:translateY(-120%);
-
 transition:.35s;
-
 }
 
 .nav-links.active{
-
 transform:translateY(0);
-
 }
 
 .hero-content{
 max-width:540px;
 }
-
 }
 
 @media(max-width:640px){
-
 .hero-bg{
-
 object-position:75% center;
-
 }
 
 .rooms-grid{
-
 grid-template-columns:1fr;
-
 }
 
 .room-card img{
-
 height:200px;
-
 }
 
 .section{
 padding:60px 0;
 }
-
 }
 
 @media(max-width:480px){
-
 .hero h1{
-
 font-size:2.1rem;
-
 letter-spacing:.26em;
-
 }
 
 .hero-text{
@@ -706,11 +718,7 @@ font-size:.9rem;
 }
 
 .age-badge{
-
 left:14px;
-
 font-size:2.2rem;
-
 }
-
 }
