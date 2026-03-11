@@ -1,22 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
+
   const form = document.querySelector('.registration-form');
   const ageInput = document.getElementById('age');
   const photoInput = document.getElementById('photo');
   const agreeCheckbox = document.getElementById('agree');
+
   const hero = document.querySelector('.hero');
   const bg = document.querySelector('.hero-bg');
+
   const burger = document.getElementById('burger');
   const nav = document.getElementById('nav-links');
-  
+
   const MAX_SIZE_MB = 1;
   const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
 
-  burger.addEventListener('click', () => {
-   nav.classList.toggle('active');
-  });
+  /* ================= BURGER MENU ================= */
 
-  // Проверка размера при выборе файла
-  photoInput.addEventListener('change', function () {
+  if (burger && nav) {
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  }
+
+  /* ================= ПРОВЕРКА ФОТО ================= */
+
+  if (photoInput) {
+   photoInput.addEventListener('change', function () {
     const file = this.files[0];
     if (!file) return;
 
@@ -24,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
       alert(`Размер фото не должен превышать ${MAX_SIZE_MB} МБ. Пожалуйста, выбери файл поменьше.`);
       this.value = '';
     }
-  });
+   });
+  }
 
   // Общая валидация при отправке формы
   form.addEventListener('submit', function (e) {
@@ -77,5 +87,22 @@ document.addEventListener('DOMContentLoaded', function () {
   bg.style.transform = `scale(1.06) translateY(${offset}px)`;
 
 });
+
+  /* ================= HERO PARALLAX ================= */
+
+  if (hero && bg) {
+
+    window.addEventListener('scroll', () => {
+
+      const rect = hero.getBoundingClientRect();
+      const speed = 0.25;
+
+      const offset = rect.top * speed;
+
+      bg.style.transform = `scale(1.06) translateY(${offset}px)`;
+
+    });
+
+  }
 
 });
