@@ -38,7 +38,6 @@ overflow-x:hidden;
 /* ================= CONTAINER ================= */
 
 .container{
-
 max-width:1200px;
 margin:0 auto;
 padding:0 20px;
@@ -187,8 +186,8 @@ will-change:transform;
 position:absolute;
 inset:0;
 background:
-radial-gradient(circle at top left,rgba(245,53,170,.35),transparent 60%),
-radial-gradient(circle at bottom right,rgba(245,53,170,.35),transparent 65%);
+radial-gradient(circle at top left,rgba(245,53,170,.35),transparent 40%),
+radial-gradient(circle at bottom right,rgba(245,53,170,.35),transparent 45%);
 mix-blend-mode:screen;
 z-index:1;
 }
