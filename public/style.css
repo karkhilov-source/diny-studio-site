@@ -178,6 +178,11 @@ body {
 }
 
 /* =============== HERO =============== */
+@media (max-width: 768px) {
+  .hero {
+    background-position: right center; /* сдвигаем фокус к правому краю */
+  }
+}
 
 .hero {
   margin-top: 64px;
@@ -187,7 +192,6 @@ body {
   align-items: center;
   justify-content: center;
   padding: 80px 20px 60px;
-  background-position: right center; /* сдвигаем фокус к правому краю */
   background:
 /*    linear-gradient(135deg,
       rgba(5, 3, 8, 0.15),
