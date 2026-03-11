@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const ageInput = document.getElementById('age');
   const photoInput = document.getElementById('photo');
   const agreeCheckbox = document.getElementById('agree');
-
+  const hero = document.querySelector('.hero');
+  const bg = document.querySelector('.hero-bg');
   const MAX_SIZE_MB = 1;
   const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
 
@@ -58,4 +59,16 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.textContent = 'Отправляем...';
     btn.disabled = true;
   });
+
+  window.addEventListener('scroll', () => {
+
+  const rect = hero.getBoundingClientRect();
+  const speed = 0.25;
+
+  const offset = rect.top * speed;
+
+  bg.style.transform = `scale(1.06) translateY(${offset}px)`;
+
+});
+
 });
